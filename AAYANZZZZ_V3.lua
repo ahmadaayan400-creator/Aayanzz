@@ -1891,6 +1891,40 @@ end
 -- (the troll-mode function startTroll(mode) goes here)
 --==================================================
 
+local function startTroll(mode)
+Config.CurrentTroll = mode
+task.spawn(function()
+while Config.CurrentTroll == mode do
+local t = getT()
+local root = getRoot()
+local hum = getHum()
+
+if t and t.Character and root and hum then
+local tRoot = t.Character:FindFirstChild("HumanoidRootPart")
+local tHead = t.Character:FindFirstChild("Head")
+
+if mode == "facebang" and tHead then
+root.CFrame = tHead.CFrame * CFrame.new(0, 0, -0.8) * CFrame.Angles(0, math.pi, 0) + tHead.CFrame.LookVector * math.sin(tick() * 25) * 0.6
+elseif mode == "bang" and tRoot then
+root.CFrame = tRoot.CFrame * CFrame.new(0, 0, 1.2 + math.sin(tick() * 25) * 0.8)
+elseif mode == "headsit" and tHead then
+hum.Sit = true
+root.CFrame = tHead.CFrame * CFrame.new(0, 1, 0)
+elseif mode == "frontsit" and tHead then
+hum.Sit = true
+root.CFrame = tHead.CFrame * CFrame.new(0, 0.5, -1) * CFrame.Angles(0, math.pi, 0)
+elseif mode == "annoy" and tRoot then
+root.CFrame = tRoot.CFrame * CFrame.new(math.random(-4, 4), math.random(-2, 4), math.random(-4, 4))
+end
+end
+RunService.Heartbeat:Wait()
+end
+
+end)
+
+end
+
+
 btn("GO TO 👤", P4, function()
 	local t = getT()
 	local root = getRoot()
@@ -1908,7 +1942,8 @@ btn("🚀 GOTO", P4, function()
 	end
 end)
 
--- YOU WILL ADD HERE  (FACE button)
+
+btn("FACE BANG 👄", P1, function() startTroll("facebang") end)
 
 btn("SPECTATE 👁️", P4, function()
 	local t = getT()
@@ -1917,11 +1952,35 @@ btn("SPECTATE 👁️", P4, function()
 	end
 end)
 
--- YOU WILL ADD HERE  (fun⚠️ button)
--- YOU WILL ADD HERE  (HEADSIT button)
--- YOU WILL ADD HERE  (FRONT SIT button)
--- YOU WILL ADD HERE  (FRONT HEADSIT button)
--- YOU WILL ADD HERE  (ANNOY button)
+btn("BANG ⚠️", P1, function() startTroll("bang") end)
+btn("HEADSIT 👽", P1, function() startTroll("headsit") end)
+btn("FRONT SIT 💢", P1, function() startTroll("frontsit") end)
+
+btn("👺 FRONT HEADSIT", P1, function()
+    _G.Loop = true
+    local t = getT()
+    spawn(function()
+        while _G.Loop and t and t.Character and t.Character.Head do
+            RunService.Heartbeat:Wait()
+            pcall(function()
+                player.Character.Humanoid.Sit = true
+                player.Character.HumanoidRootPart.CFrame = t.Character.Head.CFrame * CFrame.new(0,0.5,-1) * CFrame.Angles(0,math.pi,0)
+            end)
+        end
+    end)
+end)
+
+btn("ANNOY🍁", P1, function() startTroll("annoy") end)
+btn("STOP TROLL 💢", P1, function()
+Config.CurrentTroll = nil
+_G.Loop = false
+local hum = getHum()
+if hum then
+hum.Sit = false
+workspace.CurrentCamera.CameraSubject = hum
+end
+end)
+
 
 btn("STOP TROLL 💢", P4, function()
 	Config.CurrentTroll = nil
