@@ -942,15 +942,15 @@ do
 	local messages
 	if playerGender == "girl" then
 		messages = {
-			build("SCRIPT BY " .. playerName .. " THE BEAUTY QUEEN 👑 OF THE SERVER 🤗 ", "V3 LOADED 💀..."),
-			"AB TO TERA KHEL KHATAM " .. targetName .. " KYUKI CUTIEE " .. playerName .. " NE LOAD KIYA 😋😏",
-			gangName .. " X ALPHA EMPIRE ON TOP😍 BEST GANG EVER " .. gangName .. "💀",
+			build("SCRIPT BY " .. playerName .. " THE  QUEEN 👑 OF THE SERVER 🤗 ", "V3 LOADED 💀..."),
+			"AB KYA HOGA TERA 👽 " .. targetName .. " BECAUSE CUTIEE " .. playerName .. " NE LOAD KIYA 😋😏",
+			gangName .. " X ALPHA EMPIRE ON TOP 💀 " .. gangName .. " AB TO MAJA AAYEGA 😉💀",
 		}
 	else
 		messages = {
 			build("SCRIPT BY " .. playerName .. " THE KING OF THE SERVER 😈😍 ", "V3 LOADED 💀..."),
-			"TERA BAP " .. playerName .. " " .. targetName .. " AB KYA KAREGA 😂😭",
-			gangName .. " X ALPHA EMPIRE ON TOP😍 BEST GANG EVER " .. gangName .. "💀",
+			"AB KYA KAREGA TU KYUKI " .. playerName .. " NE LOAD KIYA 😋 " .. targetName .. " AB TO TU GYA 😭😝",
+			gangName .. " X ALPHA EMPIRE ON TOP 💀 AB TO " .. gangName .. " NE LOAD KRDIYA AB TO BHAG JA 😂💀",
 		}
 	end
 
