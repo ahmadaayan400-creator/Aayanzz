@@ -1943,7 +1943,7 @@ btn("🚀 GOTO", P4, function()
 end)
 
 
-btn("FACE BANG 👄", P1, function() startTroll("facebang") end)
+btn("FACE BANG 👄", P4, function() startTroll("facebang") end)
 
 btn("SPECTATE 👁️", P4, function()
 	local t = getT()
@@ -1952,9 +1952,9 @@ btn("SPECTATE 👁️", P4, function()
 	end
 end)
 
-btn("BANG ⚠️", P1, function() startTroll("bang") end)
-btn("HEADSIT 👽", P1, function() startTroll("headsit") end)
-btn("FRONT SIT 💢", P1, function() startTroll("frontsit") end)
+btn("BANG ⚠️", P4, function() startTroll("bang") end)
+btn("HEADSIT 👽", P4, function() startTroll("headsit") end)
+btn("FRONT SIT 💢", P4, function() startTroll("frontsit") end)
 
 btn("👺 FRONT HEADSIT", P1, function()
     _G.Loop = true
@@ -1970,7 +1970,7 @@ btn("👺 FRONT HEADSIT", P1, function()
     end)
 end)
 
-btn("ANNOY🍁", P1, function() startTroll("annoy") end)
+btn("ANNOY🍁", P4, function() startTroll("annoy") end)
 btn("STOP TROLL 💢", P1, function()
 Config.CurrentTroll = nil
 _G.Loop = false
